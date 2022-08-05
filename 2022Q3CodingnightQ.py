@@ -1,4 +1,4 @@
-#Function extract string details
+#Function to extract string details
 def stringdetail(rstr):
     
     sl = len(rstr) #string length
@@ -14,15 +14,18 @@ def stringdetail(rstr):
     secc =""    #identical index phrase variable
     
     #to check if there's an identical character as that of the second index
-    if rstr[1] == rstr[2:].find(rstr[1]):
-        secc = "@ index " + rstr[2:].index(rstr[1])
+    if rstr[1] in rstr[2:]:
+        secc = "@ index " + str(rstr[2:].index(rstr[1])+2)
     else:
-        secc = """not found"""
+        secc = "not found"
 
-    print("allAboutStrings(" + str(rstr) + ") -> " + "[" + str(rstr[0]) + ", " + str(rstr[-1] + ", " + str(ist) + ", " + str(secc) + "]"))
+    #Display contents on screen
+    sentdetails = """allAboutStrings("{}") -> [{}, {}", "{}", "{}", "{}"].""".format(rstr, sl, rstr[0], rstr[-1], ist, secc)
+    print(sentdetails)
 
 
+#To test the function
 teststring = "Thabo"
-teststring2 = "Ncubes"
+teststring2 = "Ncubec"
 stringdetail(teststring)
 stringdetail(teststring2)
